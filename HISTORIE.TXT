@@ -1,0 +1,218 @@
+HISTORIE der Änderungen am Paket THeBoPS                  -*- coding: utf-8 -*-
+========================================
+
+
+thebops 0.1.16
+~~~~~~~~~~~~~~
+
+- py2/py3: Vorerst unter Linux nicht mehr installiert.
+- neues Skript xfind (ebenfalls vor allem für Windows, aber unkritisch)
+- thebops.colours 0.3.1, und ausgegliederte colours_demo
+- thebops.optparse 1.6.7: Kollisionserkennung erkennt Aliase
+- thebops.likeix 0.3.9 (Refactoring)
+- thebops.rexxbi 0.4.8 (d2x, incl. negativer Zahlen)
+- thebops.opo 0.3.7: add_doctest_option
+- thebops.misc1 0.2: make_valuesClass, extract_dict
+
+
+thebops 0.1.15
+~~~~~~~~~~~~~~
+
+- py2/py3: Fehler behoben, wenn kein passender Interpreter gefunden wurde
+- thebops.likeix 0.3.8
+- thebops.anyos 0.4.3
+
+
+thebops 0.1.14
+~~~~~~~~~~~~~~
+
+- thebops.optparse 1.6.6:
+  - parse_args_testable
+- thebops.rexxbi 0.4.5, rexxbi_demo 0.4.5:
+  - wordlength
+- Unittests für thebops.rexxbi und thebops.optparse
+- thebops.iscales 0.6.5:
+  - Liste der Formate konsolidiert
+  - 18:10 wird nicht gekürzt
+  - kleine Korrekturen
+- thebops.likeix 0.3.7:
+  - Demo verbessert
+- thebops.opo 0.3.6:
+  - add_backup_options überarbeitet
+  - cb_fill_dict
+- Utility-Skript py3, wie py2
+
+
+thebops 0.1.13
+~~~~~~~~~~~~~~
+
+- thebops.optparse 1.6.5:
+  - action_...-Methoden; bei Ableitungen der Option-Klasse mit neuen Aktionen
+    muß die Methode take_action nicht mehr reimplementiert (die ACTIONS- und
+    ähnlichen Tupel aber weiterhin gepflegt) werden
+  - "decrease"-Aktion, als Gegenstück zu "count"
+  - optparse_demo v1.6.5:
+    - Demo für numerische Optionen (aus opo_demo)
+    - Demo für count und decrease
+
+
+thebops 0.1.12
+~~~~~~~~~~~~~~
+
+- thebops.rexxbi 0.4.4:
+  - delwords: Korrektur für manche Testfälle mit Leerzeichen am Ende
+- thebops.iscales 0.6.4:
+  - mehr Formate (UWXGA, ...)
+- thebops.optparse 1.6.4:
+  - progname-Funktion aus thebops.base verwenden
+
+
+thebops 0.1.11
+~~~~~~~~~~~~~~
+
+- thebops.base 0.1.1:
+  - progname-Funktion repariert
+- thebops.optparse 1.6.3:
+  - check_builtin verwendet Exception-Klassen
+  - mehr Exceptionklassen (abgeleitet von OptionValueError)
+- thebops.iscales 0.6.3:
+  - mehr Formate
+  - Formate mit angegebener Zeilenanzahl ausgeben
+  - Fehlerklassen NoSuchDataError, NoResolutionsForLines
+- thebops.likeix:
+  - PythonVDirs erweitert
+- thebops.opo 0.3.4, opo_demo 0.3.4:
+  - neue Callback-Funktionen cb_flags, cb_list
+  - Demo für klassische numerische optparse-Typen
+- rexxbi_demo 0.4.3.1:
+  - kl. Verbesserung für pos-Demo
+- likeix_demo, weiterhin 0.3.6:
+  - kl. Korrektur der Hilfe für --parentsof
+- iscales_demo, weiterhin 0.6.2:
+  - abfangen von IScalesError-Exceptions
+  
+- thebops.enhopa:
+  - Bugfix in check_xchoice
+- thebops.optparse 1.6.3:
+  - i18n-Bug von allg. optparse-Modul behoben (spezielle Exception-Klassen)
+- Utility-Skript py2 v0.2:
+  - Informationen hinzugefügt
+  - Rückgriff auf aufrufenden Interpreter
+
+
+thebops 0.1.10
+~~~~~~~~~~~~~~
+
+- thebops.rexxbi 0.4.3:
+  - einige Korrekturen, geprüft gegen OpenObjectRexx 4.1.1
+  - "pos"-Funktion (die fehlte bisher!) und -Demo
+- thebops.likeix 0.3.6:
+  - finde gpg and xmllint
+  - Demo
+- thebops.optparse 1.6.2:
+  - EnhancedHelpFormatter (verwendet metavar2); Kommentare
+- thebops.iscales 0.6.3:
+  - mehr Formate
+- thebops.likeix 0.6.3:
+  - find_gpg, find_xmllint
+  - 15:9, 21:9 werden nicht gekürzt
+- thebops.rexxbi 0.4.3:
+  - pos (auch in rexxbi_demo 0.4.3)
+  - Korrekturen in delword-Doctest
+- thebops.optparse 1.6.2:
+  - metavar2
+- HISTORY.TXT
+
+
+thebops 0.1.9
+~~~~~~~~~~~~~
+
+- thebops.opo:
+  - add_optval_option: '--' beachten
+
+
+thebops 0.1.8
+~~~~~~~~~~~~~
+
+- thebops.opo 0.3.3, opo_demo 0.3.3:
+  - add_backup_options
+  - add_optval_option (Option mit optionalem Wert;
+    unabhängig von optparse-Version, mit Manipulation der Liste)
+
+
+thebops 0.1.7
+~~~~~~~~~~~~~
+
+- Neue Module thebops.base, thebops.plustr1
+- thebops.errors 0.3.2:
+  - prompt-Funktion entfernt (--> thebops.shtools.ask)
+  - Returncodes verschoben nach thebops.base
+- thebops.iscales 0.6.2:
+  - iscales_demo ausgegliedert
+- thebops.iscales 0.5.1:
+  - counters_demo ausgegliedert
+- thebops.modinfo 0.4.6
+- thebops.opo 0.3.2
+- thebops.anyos 0.4.2
+- likeix_demo 0.3.5:
+  - Demo für ToolsHub-Klasse
+
+
+thebops 0.1.6
+~~~~~~~~~~~~~
+
+- py2 0.1
+- Bugfix-Versionen:
+  - thebops.likeix 0.3.5 
+  - thebops.optparse 0.6.1
+- termwot_demo 0.5.1:
+  - --number (versteckt)
+- shtools_demo 0.5.2, likeix_demo 0.3.4:
+  - --trace (versteckt)
+
+
+thebops 0.1.5
+~~~~~~~~~~~~~
+
+- thebops.optparse v1.5.3:
+  Neues Modul, basierend auf optparse 1.5.3 von Greg Ward/Python 2.7.3
+  mit (vorläufig) geringfügigen Verbesserungen.
+  Da einerseits optparse "deprecated" ist und nicht mehr weiterentwickelt wird,
+  andererseits aber zwischen den Versionen zu Python 2.4 und 2.7 Änderungen
+  vorgenommen wurden, die Fehlerbehandlung erfordern, sollen mittelfristig alle
+  Verbesserungen von thebops.enhopa nach thebops.optparse übertragen werden.
+- Demo für thebops.iscales
+- thebops.errors 0.3.1:
+  - progname erweitert (leider fehlerhaft; gefixt in thebops 0.1.11)
+- Anpassungen für Python-2.4-Kompatibilität
+
+
+thebops 0.1.4
+~~~~~~~~~~~~~
+
+- thebops.opo 0.3.1: add_trace_option/DEBUG
+- thebops.modinfo 0.4.4: -T/--trace (versteckt)
+
+
+thebops 0.1.3
+~~~~~~~~~~~~~
+
+- Demo für thebops.opo
+- thebops.likeix 0.3.3:
+  - CygwinDirs
+
+
+thebops 0.1.2
+~~~~~~~~~~~~~
+
+- Demos für thebops.rexxbi, thebops.shtools, thebops.termwot
+- etwas aufgeräumt
+
+
+thebops 0.1.1
+~~~~~~~~~~~~~
+
+- erste öffentliche Version
+
+
+# vim: sts=2 sw=2 si et tw=79
