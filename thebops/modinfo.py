@@ -1,4 +1,4 @@
-#!/usr/bin/python
+﻿#!/usr/bin/python
 """\
 thebops.modinfo: Python module to enable modules to tell about themselves
 """

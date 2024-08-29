@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: latin1 -*- vim: ts=8 sts=4 sw=4 si et tw=79
 """\
 thebops.likeix: find POSIX-conforming tools, even on Windows(TM) systems
@@ -75,11 +75,11 @@ __all__ = ['ToolsHub',      # smart wrapper for find_progs
            'find_psftp',
            'find_plink',
            'find_pageant',
-           # ... SCM tools: 
+           # ... SCM tools:
            'find_cvs',
            'find_svn',
            'find_tsvn',
-           # ... cryptographic tools: 
+           # ... cryptographic tools:
            'find_gpg',
            # ... other specific tools:
            'find_xmllint',
@@ -599,7 +599,7 @@ class ToolsHub(dict):
         hintsmap = {}
         self.fallback = fallback
 
-        # old version: 
+        # old version:
         for k, v in kwargs.items():
             if isinstance(v, dict):
                 func, adic = self.smartie(k)
@@ -737,7 +737,7 @@ def PosixToolsDirs():
     """
     for d in ProgramDirs('GnuWin32/bin'):
         yield d
-    # http://sourceforge.net/projects/unxutils/ 
+    # http://sourceforge.net/projects/unxutils/
     for p in [
             r'%(SystemDrive)s\Tools\UnxUtils',
             r'%(SystemDrive)s\UnxUtils',

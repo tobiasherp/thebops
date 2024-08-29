@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*- vim: ts=8 sts=4 sw=4 si et tw=79
 """\
 Demo program for the thebops.counters Python module
@@ -15,7 +15,7 @@ from thebops.counters import *
 from thebops.base import progname
 from thebops.optparse import OptionParser, OptionGroup
 from thebops.opo import add_help_option, add_version_option
-        
+
 try: _
 except NameError:
     def _(s): return s
@@ -50,7 +50,7 @@ def main():
     o, args = evaluate_options()
     if o.recursive:
         recursion(True)
-        
+
     if o.subtype_text:
         TEXT_SUBTYPE = o.subtype_text
 

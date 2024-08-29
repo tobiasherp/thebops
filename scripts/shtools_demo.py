@@ -1,8 +1,11 @@
-#!/usr/bin/env python
-# -*- coding: latin1 -*- vim: ts=8 sts=4 sw=4 si et tw=79
+﻿#!/usr/bin/env python
+# -*- coding: utf-8 -*- vim: ts=8 sts=4 sw=4 si et tw=79
+from __future__ import absolute_import
+from __future__ import print_function
 from thebops.shtools import *
 from time import sleep as _sleep
 from thebops.errors import info, error, check_errors
+from six.moves import map
 __author__ = "Tobias Herp <tobias.herp@gmx.net>"
 VERSION = (0,
            5,	# termwot and rexxbi functions removed
@@ -102,7 +105,7 @@ o, a = make_parser().parse_args()
 
 if o.trace:
     import pdb
-    print 'hint: b <function name> [, condition]'
+    print('hint: b <function name> [, condition]')
     pdb.set_trace()
 ok = 0
 for arg in a:
@@ -116,7 +119,7 @@ if o.ask:
         info(_('Answer is %d') % answer)
     except KeyboardInterrupt:
         info(_('Break propagated'))
-    except Exception, e:
+    except Exception as e:
         info(_('%r exception raised'
                ) % e.__class__.__name__)
 
@@ -132,7 +135,7 @@ if (o.check_options or
         optstrings = [s[1] for s in opts]
         info(_('up to one of %(optstrings)r: ok'
                ) % locals())
-    except OptionCheckError, e:
+    except OptionCheckError as e:
         error(e)
         info(_('think of TAL: *either* tal:content *or* tal:replace'))
     try:
@@ -143,7 +146,7 @@ if (o.check_options or
         optstrings = [s[1] for s in opts]
         info(_('exactly one of %(optstrings)r: ok'
                ) % locals())
-    except OptionCheckError, e:
+    except OptionCheckError as e:
         error(e)
         info(_('one of these is required'))
 
@@ -155,21 +158,21 @@ try:
         ok = 1
         info(_('Rotor()() demo (--rotate)'))
 
-        print _('press Ctrl+C to terminate:')
+        print(_('press Ctrl+C to terminate:'))
         if o.rotor_words:
             rot = o.rotor_words.split()
         else:
             rot = o.rotor_chars or DEFAULT_ROTOR
         if o.rotor_words:
-            print _('using words: '),
+            print(_('using words: '), end=' ')
         rotate = Rotor(rot)
         delay = o.delay or 0.3
         while True:
             _sleep(delay)
             rotate()
 except KeyboardInterrupt:
-    print
-except OptionCheckError, e:
+    print()
+except OptionCheckError as e:
     ok = 1  # there would have been something to do
     error(e)
 
@@ -179,12 +182,12 @@ if o.sleep:
     step = (o.sleep >= 10
             and 2
             or 1)
-    print _('sleeping %d seconds:') % o.sleep
+    print(_('sleeping %d seconds:') % o.sleep)
     try:
         sleep(o.sleep, step=step)
-    except KeyboardInterrupt, e:
-        print '... %s' % e.__class__.__name__
-    print _('slept %.2f seconds') % slept()
+    except KeyboardInterrupt as e:
+        print('... %s' % e.__class__.__name__)
+    print(_('slept %.2f seconds') % slept())
 
 if not ok:
     error(_('nothing to do'))

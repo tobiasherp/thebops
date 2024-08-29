@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: latin1 -*- vim: ts=8 sts=4 sw=4 si et tw=79
 
 from time import sleep as _sleep
@@ -206,7 +206,7 @@ def main():
         p = o.period or w
         sleep = Sleeper(generate_caterpillar(width=w, period=o.period or w),
                         o.crawl_delay or o.delay or 0.2)
-        
+
         print _('sleeping %d seconds:') % o.sleep
         try:
             sleep(o.sleep)

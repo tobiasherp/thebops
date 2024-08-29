@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*- äöü
+﻿# -*- coding: utf-8 -*- äöü
 def asciibox(label, ch='*', width=79):
     """
     Gib eine umrandete Box zurück

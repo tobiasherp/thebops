@@ -1,5 +1,5 @@
-#!/usr/bin/python
-# -*- coding: latin-1 -*- äöü vim: ts=8 sts=4 et si sw=4 tw=79 
+ï»¿#!/usr/bin/python
+# -*- coding: latin-1 -*- Ã¤Ã¶Ã¼ vim: ts=8 sts=4 et si sw=4 tw=79
 """
 Python module counters                            (c) Tobias Herp 2005,2013
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -64,7 +64,7 @@ Helper functions:
 freezeText(text, plu)  parses the given text and returns the singular or
                        plural version (from module thebops.plustr1)
 digits(i)              returns the number of digits needed for decimal
-                       representation 
+                       representation
 
 Variables:
 
@@ -91,7 +91,7 @@ given in the argument string.
 # TODO:
 # - alle Funktionen dokumentieren
 # - ... und systematisieren
-# - (einzelne) Strings für 0-Werte
+# - (einzelne) Strings fÃ¼r 0-Werte
 # - type-Aufrufe durch isinstance ersetzen
 
 VERSION = (0,
@@ -173,7 +173,7 @@ def _isTupleOfStrings(seq):
         if not isinstance(topic, basestring):
             return False
     return True
-       
+
 def _isListOfStrings(seq):
     """
     >>> _isListOfStrings(('eins', 'zwei'))
@@ -189,7 +189,7 @@ def _isListOfStrings(seq):
         if not isinstance(topic, basestring):
             return False
     return True
-        
+
 def _normalizeKey(key):
     """
     takes a string or a sequence; returns a tuple.
@@ -356,7 +356,7 @@ def register_counters(_dic={}, **args):
     counter which as been used (i.e. it is greater 0), register every
     counter you use. By default, 'error' is registered as 'error[s]',
     and 'warning' is registered as 'warning[s]'.
-    If you do 
+    If you do
         register_counters({'error:io': 'I/O error[s]'}),
     and call
         error('io')
@@ -364,7 +364,7 @@ def register_counters(_dic={}, **args):
         all_counters()
     will summarize I/O errors as '{count} I/O error[s]'; otherwise,
     it will give you '{count} error[s], subtype: io'.
-    
+
     Takes a dictionary of keys (tuples or strings, see --> _normalizeKey()).
 
     If the keys are valid Python identifyers, you can just use named
@@ -424,7 +424,7 @@ def check_errors(text=None,
     ggf. zu fatal() durchgereichte Argumente:
 
     text -- als help-Argument durchgereicht, ein Hinweis
-            auf die Hilfe (unterdrücken durch '')
+            auf die Hilfe (unterdrÃ¼cken durch '')
     """
     if text is None:
         text = _("Use -h or --help to get usage help")
@@ -447,14 +447,14 @@ def fatal(text=None,
 
     code -- der Returncode; Default: die Anzahl ERRORS der bisher
             aufgetretenen Fehler, oder 1
-    tell -- 1 bzw. true: Info über Anzahl bisheriger Fehler ausgeben
-            2: auch Info über Anzahl bisheriger Warnungen ausgeben
-            Wenn None übergeben wird, schlägt eine Automatik zu
-    count -- boolean: den aktuellen Fehler mitzählen?
-    subtype -- wenn angegeben (und nicht per count=False unterdrückt),
-            wird gezählt
+    tell -- 1 bzw. true: Info Ã¼ber Anzahl bisheriger Fehler ausgeben
+            2: auch Info Ã¼ber Anzahl bisheriger Warnungen ausgeben
+            Wenn None Ã¼bergeben wird, schlÃ¤gt eine Automatik zu
+    count -- boolean: den aktuellen Fehler mitzÃ¤hlen?
+    subtype -- wenn angegeben (und nicht per count=False unterdrÃ¼ckt),
+            wird gezÃ¤hlt
 
-    help -- wenn übergeben, ein Hinweis auf die Hilfe
+    help -- wenn Ã¼bergeben, ein Hinweis auf die Hilfe
     """
     if count is None:
         count = bool(subtype)

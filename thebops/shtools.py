@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: latin1 -*- vim: ts=8 sts=4 sw=4 si et tw=79
 """\
 Shell tools
@@ -17,7 +17,7 @@ VERSION = (0,
            'rev-%s' % '$Rev: 1042 $'[6:-2],
            )
 __version__ = '.'.join(map(str, VERSION))
-# f�r Module:
+# für Module:
 __all__ = ['sleep', 'slept',
            'ask',
            'one_of',
@@ -59,7 +59,7 @@ __all__ = ['sleep', 'slept',
            'CONSTANTS_INFO',
            # other data:
            'DEFAULT_ROTOR',
-           # default values handling 
+           # default values handling
            # (DEFAULT_... variables omitted intentionally):
            'defaults_summary',
            'set_default',

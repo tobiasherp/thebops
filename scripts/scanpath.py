@@ -1,10 +1,14 @@
-#!/usr/bin/python
+﻿#!/usr/bin/python
 # -*- coding: utf-8 -*- vim: sw=4 ts=4 et si sts=4
 u"""
 Scan the PATH for the given file(s), or list it/check it for errors
 
 see scanpath.txt (German) for TODO, ideas, remarks
 """
+from __future__ import absolute_import
+from __future__ import print_function
+from six.moves import filter
+from six.moves import map
 __version__ = (0,
                5, # --tail; Autoswitches
                1, # grouping of abbr. options
@@ -156,9 +160,9 @@ if not LISTMODE:
         from os.path import abspath, isdir, sep
         if isdir(fn):
             if option.verbose:
-                print abspath(fn)+sep
+                print(abspath(fn)+sep)
             return 0
-        print abspath(fn)
+        print(abspath(fn))
         return 1
 
     def list_with_md5sum(fn):
@@ -172,7 +176,7 @@ if not LISTMODE:
         thisfile = open(fn, 'rb')
         dig = md5(thisfile.read()).hexdigest()
         thisfile.close()
-        print '%s  %s' % (dig, abspath(fn))
+        print('%s  %s' % (dig, abspath(fn)))
         return 1
 
     def _edit_settings():
@@ -264,15 +268,15 @@ if not LISTMODE:
             if ext in TEXTUAL:
                 try:
                     fo = open(fn, 'r')
-                    print '**', fn+':'
+                    print('**', fn+':')
                     for z in gen_lines(fo):
-                        print z
+                        print(z)
                     fo.close()
-                except OSError, e:
-                    print '!! %s: nicht lesbar (%s)' % (fn, e)
+                except OSError as e:
+                    print('!! %s: nicht lesbar (%s)' % (fn, e))
             else:
-                print '?? %s: keine (bekannte) Textdatei-Erweiterung (%s)' \
-                        % (fn, ext)
+                print('?? %s: keine (bekannte) Textdatei-Erweiterung (%s)' \
+                        % (fn, ext))
         return 1
 
     def file_heads(fn):
@@ -296,19 +300,19 @@ if not LISTMODE:
             if ext in TEXTUAL:
                 try:
                     fo = open(fn, 'r')
-                    print '**', fn+':'
+                    print('**', fn+':')
                     n = 1
                     for z in gen_lines(fo):
                         if n > option.lines:
                             break
-                        print z
+                        print(z)
                         n += 1
                     fo.close()
-                except OSError, e:
-                    print '!! %s: nicht lesbar (%s)' % (fn, e)
+                except OSError as e:
+                    print('!! %s: nicht lesbar (%s)' % (fn, e))
             else:
-                print '?? %s: keine (bekannte) Textdatei-Erweiterung (%s)' \
-                        % (fn, ext)
+                print('?? %s: keine (bekannte) Textdatei-Erweiterung (%s)' \
+                        % (fn, ext))
         return 1
 
     def file_tails(fn):
@@ -334,19 +338,19 @@ if not LISTMODE:
                     fo = open(fn, 'r')
                     from collections import deque
                     deq = deque([None] * option.lines)
-                    print '**', fn+':'
+                    print('**', fn+':')
                     for z in gen_lines(fo):
                         deq.append(z)
                         deq.popleft()
                     fo.close()
                     for z in deq:
                         if z is not None:
-                            print z
-                except OSError, e:
-                    print '!! %s: nicht lesbar (%s)' % (fn, e)
+                            print(z)
+                except OSError as e:
+                    print('!! %s: nicht lesbar (%s)' % (fn, e))
             else:
-                print '?? %s: keine (bekannte) Textdatei-Erweiterung (%s)' \
-                        % (fn, ext)
+                print('?? %s: keine (bekannte) Textdatei-Erweiterung (%s)' \
+                        % (fn, ext))
         return 1
 
     FILEFUNC = {}
@@ -356,7 +360,7 @@ if not LISTMODE:
     FILEFUNC['show'] = show_files
     FILEFUNC['head'] = file_heads
     FILEFUNC['tail'] = file_tails
-    action_keys = FILEFUNC.keys()
+    action_keys = list(FILEFUNC.keys())
     action_keys.sort()
 
     group_ = OptionGroup(parser,
@@ -590,7 +594,7 @@ if 0:pdb.set_trace()
 try:
     if option.extensions is None:
         if try_pathext and option.ext_varname \
-                       and os.environ.has_key(option.ext_varname):
+                       and option.ext_varname in os.environ:
             option.extensions = os.environ[option.ext_varname].lower().split(os.path.pathsep)
         else:
             option.extensions = ()
@@ -702,7 +706,7 @@ def seek_files(liz):
                            [mask(fn) for fn in FILES])
             from os import system
             if option.verbose or not option.doit:
-                print cmd
+                print(cmd)
             if option.doit:
                 rc = system(cmd)
                 if rc:
@@ -753,18 +757,18 @@ def listpath_checking():
     from os.path import isdir, exists, normpath, sep
     for d in getpathdirs():
         if isdir(d):
-            print 'OK:', normpath(d)+sep
+            print('OK:', normpath(d)+sep)
         elif exists(d):
-            print '(2)', normpath(d)+'\t(not a directory!)'
+            print('(2)', normpath(d)+'\t(not a directory!)')
         else:
-            print '(1)', normpath(d)+'\t(not found!)'
+            print('(1)', normpath(d)+'\t(not found!)')
 
 def listpath():
     """
     Verzeichnisse ausgeben
     """
     for d in getpathdirs():
-        print d
+        print(d)
 
 check_errors()
 
@@ -780,7 +784,7 @@ if option.listpathonly:
             if 0:
                 from os.path import isdir
                 for d in filter(isdir, getpathdirs()):
-                    print d
+                    print(d)
     if option.prefix:
         mask = mask or '%(dirname)s'
         mask = option.prefix + mask
@@ -793,9 +797,9 @@ if option.listpathonly:
                 for isdir, status, dirname, suffix in getpathdirs_checking():
                     no += 1
                     if isdir:
-                        print mask % locals()
+                        print(mask % locals())
                     elif option.verbose:
-                        print mask % locals()
+                        print(mask % locals())
                         invalid += 1
                     else:
                         skipped += 1
@@ -811,8 +815,8 @@ if option.listpathonly:
             else:
                 for dirname in getpathdirs():
                     no += 1
-                    print mask % locals()
-        except KeyError, e:
+                    print(mask % locals())
+        except KeyError as e:
             fatal('--prefix %r: Variable %r unknown' % (option.prefix, e.args[0]))
     else:
         listpath()

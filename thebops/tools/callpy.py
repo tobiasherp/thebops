@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: latin1 -*- vim: ts=8 sts=4 sw=4 si et tw=79
 """\
 py2: Call the "best" Python 2 interpreter on the system,
@@ -89,5 +89,5 @@ def py3():
     callpy(min_version=VTUPLE)
 
 if __name__ == '__main__':
-    # TODO: use specs like +25, -30, 244 ... from the commandline 
+    # TODO: use specs like +25, -30, 244 ... from the commandline
     callpy()

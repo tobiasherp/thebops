@@ -1,4 +1,4 @@
-# -*- coding: latin1 -*- a Python module - vim: ts=8 sts=4 sw=4 si et
+﻿# -*- coding: utf-8 -*- a Python module - vim: ts=8 sts=4 sw=4 si et
 r"""
 anyos -- provide some os functionality for any operating system
 ~~~~~--------------------------------------~~~-~---------~-----
@@ -72,6 +72,11 @@ for Python 2.4, the missing parts are amended.
 $Id: anyos.py 1100 2014-03-09 21:51:27Z  $
 """
 
+from __future__ import absolute_import
+from __future__ import print_function
+from six.moves import map
+import six
+from six.moves import range
 __author__ = "Tobias Herp <tobias.herp@gmx.net>"
 VERSION = (0,
            4, # Bugfix fuer Linux (keine PATHEXT-Variable)
@@ -79,7 +84,7 @@ VERSION = (0,
            3, # VersionConstrained mit opt. Argument
            'rev-%s' % '$Rev: 1100 $'[6:-2],
            )
-__version__ = '.'.join((map(str, VERSION)))
+__version__ = '.'.join(map(str, VERSION))
 
 from subprocess import Popen, PIPE, call
 try:
@@ -274,9 +279,9 @@ class Link(Command):
                 cmd.insert(i, o)
                 i += 1
             if DEBUG:
-                print cmd
+                print(cmd)
             check_call(cmd)
-        except CalledProcessError, e:
+        except CalledProcessError as e:
             raise CommandFailed(e.returncode, e.cmd, e.output)
     @classmethod
     def get_worker(cls):
@@ -364,7 +369,8 @@ def quoted_seq(seq):
     take a sequence (which could be used as an executable command)
     and return a string which could be given to a shell for execution.
     """
-    assert not isinstance(seq, (str, unicode))
+    assert not isinstance(seq, (str, six_text_type))
+from six import text_type as six_text_type
     for elem in seq:
         if elem in SHELL_SINGLETONS:
             yield SHELL_ESCAPE + elem
@@ -462,7 +468,7 @@ def find_progs(progname,
     progname, extensions = splitext(progname)
     if not extensions:
         try:
-            extensions = map(normcase, environ['PATHEXT'].split(pathsep))
+            extensions = list(map(normcase, environ['PATHEXT'].split(pathsep)))
         except KeyError:
             pass
         if not extensions:
@@ -740,14 +746,14 @@ try:
     from os import link
 except ImportError:
     if DEBUG:
-        print "Can't import link"
+        print("Can't import link")
     link = Link()
 
 try:
     from os import symlink
 except ImportError:
     if DEBUG:
-        print "Can't import symlink"
+        print("Can't import symlink")
     symlink = Symlink()
 
 symlink_forced = Symlink_forced()
@@ -786,7 +792,7 @@ def touch(fname, atime=None, mtime=None):
     except OSError:
         open(fname, 'a').close()
         utime(fname, times)
-        
+
 if __name__ == '__main__':
     from thebops.modinfo import main as modinfo
     modinfo(version='%prog '+__version__)

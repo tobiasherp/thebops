@@ -1,4 +1,4 @@
-# vim: ts=8 sts=4 sw=4 si et
+﻿# vim: ts=8 sts=4 sw=4 si et
 import unittest
 # from thebops.optparse import *
 from optparse import *
@@ -22,7 +22,7 @@ def parser_factory(*args, **kwargs):
     return p
 
 OSPECS = (
-        # increasing/decreasing ... 
+        # increasing/decreasing ...
         (('-v',),
          {'action': 'count',
           'dest': 'verbose',
@@ -37,7 +37,7 @@ OSPECS = (
          {'action': 'count',
           'dest': 'zerobased',
           }),
-        # directly specified numbers 
+        # directly specified numbers
         (('--integer', '-i'),
          {'type': 'int',
           'metavar': 'NN',
@@ -54,7 +54,7 @@ OSPECS = (
          {'type': 'complex',
           'metavar': '[NN+]MMj',
           }),
-        # constants 
+        # constants
         (('--eins',),
          {'action': 'store_const',
           'const': 1,
@@ -83,7 +83,7 @@ OSPECS = (
           'const': 3.25,
           'dest': 'numbers',
           }),
-        # string variants 
+        # string variants
         (('--store-string', '-s'),
          {'action': 'store',
           'metavar': 'STR',

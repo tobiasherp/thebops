@@ -1,11 +1,14 @@
-#!/usr/bin/env python
-# -*- coding: latin1 -*- vim: ts=8 sts=4 sw=4 si et tw=79
+﻿#!/usr/bin/env python
+# -*- coding: utf-8 -*- vim: ts=8 sts=4 sw=4 si et tw=79
 
+from __future__ import absolute_import
+from __future__ import print_function
 from time import sleep as _sleep
 
 from thebops.termwot import *
 from thebops.shtools import Rotor, one_of, OptionCheckError, ToolsValueError
 from thebops.errors import info, error, check_errors
+from six.moves import map
 __author__ = "Tobias Herp <tobias.herp@gmx.net>"
 VERSION = (0,
            5,	# extracted from shtools_demo.py v0.4.2.2
@@ -99,7 +102,7 @@ o, a = make_parser().parse_args()
 
 if o.trace:
     import pdb
-    print 'hint: b <function name> [, condition]'
+    print('hint: b <function name> [, condition]')
     pdb.set_trace()
 ok = 0
 for arg in a:
@@ -113,7 +116,7 @@ try:
         ok = 1
         info(_('Rotor()() demo (--rotate)'))
 
-        print _('press Ctrl+C to terminate:')
+        print(_('press Ctrl+C to terminate:'))
         if o.snake:
             rot = make_snake(width=o.width or 10)
             # rot = make_oscillator('>')
@@ -132,8 +135,8 @@ try:
             _sleep(delay)
             rotate()
 except KeyboardInterrupt:
-    print
-except OptionCheckError, e:
+    print()
+except OptionCheckError as e:
     ok = 1  # there would have been something to do
     error(e)
 
@@ -145,7 +148,7 @@ if o.caterpillar:
         w = o.width or 20
         p = o.period or w
         for s in generate_caterpillar(width=w, period=p):
-            print s+'\r',
+            print(s+'\r', end=' ')
             _sleep(crawl_delay)
     except KeyboardInterrupt:
         pass
@@ -156,7 +159,7 @@ if o.caterpillars:
     delay = float(crawl_delay) / 2
     try:
         for s in generate_caterpillars(width=o.width or 30):
-            print s+'\r',
+            print(s+'\r', end=' ')
             _sleep(delay)
     except KeyboardInterrupt:
         pass
@@ -173,7 +176,7 @@ try:
             rotate()
 except KeyboardInterrupt:
     pass
-except (ToolsValueError, OptionCheckError), e:
+except (ToolsValueError, OptionCheckError) as e:
     ok = 1  # there would have been something to do
     error(e)
 
@@ -184,13 +187,13 @@ if o.sleep:
     p = o.period or w
     sleep = Sleeper(generate_caterpillar(width=w, period=o.period or w),
                     o.crawl_delay or o.delay or 0.2)
-    
-    print _('sleeping %d seconds:') % o.sleep
+
+    print(_('sleeping %d seconds:') % o.sleep)
     try:
         sleep(o.sleep)
-    except KeyboardInterrupt, e:
-        print '... %s' % e.__class__.__name__
-    print _('slept %.2f seconds') % sleep.slept()
+    except KeyboardInterrupt as e:
+        print('... %s' % e.__class__.__name__)
+    print(_('slept %.2f seconds') % sleep.slept())
 
 if not ok:
     error(_('nothing to do'))

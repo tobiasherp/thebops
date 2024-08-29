@@ -1,4 +1,4 @@
-# vim: ts=8 sts=4 sw=4 si et
+﻿# vim: ts=8 sts=4 sw=4 si et
 import unittest
 from thebops.rexxbi import *
 

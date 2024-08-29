@@ -1,9 +1,9 @@
-import os, sys
+﻿import os, sys
 import locale
 import gettext
 
 # Change this variable to your app name!
-#  The translation files will be under 
+#  The translation files will be under
 #  @LOCALE_DIR@/@LANGUAGE@/LC_MESSAGES/@APP_NAME@.mo
 #
 APP_NAME = __package__
@@ -34,7 +34,7 @@ lc, encoding = locale.getdefaultlocale()
 if lc:
     languages = [lc]
 
-# Concat all languages (env + default locale), 
+# Concat all languages (env + default locale),
 #  and here we have the languages and location of the translations
 #
 languages += DEFAULT_LANGUAGES

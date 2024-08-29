@@ -1,4 +1,4 @@
-# -*- coding: latin1 -*- vim: sw=4 sts=4 ts=8 et ft=python
+﻿# -*- coding: utf-8 -*- vim: sw=4 sts=4 ts=8 et ft=python
 """
 Python module for image dimensions
 """

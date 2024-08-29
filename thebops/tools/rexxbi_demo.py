@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*- vim: ts=8 sts=4 sw=4 si et tw=79
 """\
 Demo program for the rexxbi Python module
@@ -100,7 +100,7 @@ def test_leftright(s, width, fillchar=None, rexx_syntax=0):
         if rexx_syntax:
             fnames = fnames.upper()
         mask = '%s(s, %%2d%%s) = %%r   %s(s, %%2d%%s) = %%r' \
-               % tuple(fnames.split()) 
+               % tuple(fnames.split())
         print('s = %r' % s)
         for i in range(width):
             j = width - i - 1
@@ -436,7 +436,7 @@ def evaluate_options():
         parser.values.functions.extend('d2x'
                 ' '.split())
     g.add_option('--left-right',
-                 dest='left_right', 
+                 dest='left_right',
                  action='store_true',
                  help=_('combined demo of the left and right functions, '
                  'inspired by the Rexx built-ins LEFT and RIGHT'))

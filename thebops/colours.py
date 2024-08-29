@@ -1,4 +1,4 @@
-# -*- coding: latin1 -*- vim: sw=4 ts=8 sts=4 si et 
+﻿# -*- coding: utf-8 -*- vim: sw=4 ts=8 sts=4 si et
 """
 Convert colour specifications
 """
@@ -7,13 +7,16 @@ Convert colour specifications
 #         HTML4_COLOURS and SVG_COLOURS given here) and returns the
 #         dict class
 
+from __future__ import absolute_import
+import six
+from six.moves import map
 __version__ = (0,
                3,   # add_colour_option, hsl(), hsla()
                1,   # demo forked to colours_demo
                #    # TODO: improve error handling and/or help
                'rev-%s' % '$Rev: 1102 $'[6:-2],
                )
-__all__ = [# for colour conversion: 
+__all__ = [# for colour conversion:
            'parse_colour',
            'parse_alpha_colour',
            'css_intclip',
@@ -56,9 +59,9 @@ HTML4_COLOURS = {   # http://www.w3.org/TR/css3-color/#html4
         'navy':    (0,     0, 128),
         'blue':    (0,     0, 255),
         'teal':    (0,   128, 128),
-        'aqua':    (0,   255, 255), 
+        'aqua':    (0,   255, 255),
         }
-SVG_COLOURS = {     # http://www.w3.org/TR/css3-color/#svg-color 
+SVG_COLOURS = {     # http://www.w3.org/TR/css3-color/#svg-color
         'aliceblue':            (240, 248, 255),
         'antiquewhite':         (250, 235, 215),
         'aquamarine':           (127, 255, 212),
@@ -203,7 +206,8 @@ class PercentageExpected(InvalidColourValue):
     pass
 
 def clip_percent2float(s):
-    if isinstance(s, basestring):
+    if isinstance(s, six_string_types):
+from six import string_types as six_string_types
         if not s.endswith('%'):
             raise PercentageExpected(s)
         else:
@@ -351,7 +355,7 @@ def css_alphaclip(val):
 def parse_colour(val, func=css_intclip):
     """
     return a (red, green, blue) 3-tuple for the given colour spec.
-    
+
     val - the parsed value
     func - the factory function, by default: -> css_intclip
 
@@ -368,7 +372,7 @@ def parse_colour(val, func=css_intclip):
     """
     # TODO: hsl(hue, saturation, lightness) values; http://www.w3.org/TR/css3-color/#hsl-color
     v = val.strip().lower()
-    if v in CSS_COLOURS.keys():
+    if v in list(CSS_COLOURS.keys()):
         return CSS_COLOURS[v]
     elif v.startswith('#'):
         length = len(v)
@@ -465,7 +469,7 @@ def normalhex(str):
     """
     str = str.lower()
     if len(str) == 3:
-        return ''.join(map(lambda s:2*s, list(str)))
+        return ''.join([2*s for s in list(str)])
     return str
 
 def splitcolour(str):
@@ -476,7 +480,7 @@ def splitcolour(str):
     ['aa', 'bb', 'cc']
     """
     if len(str) == 3:
-        return map(lambda s:2*s, list(str))
+        return [2*s for s in list(str)]
     elif len(str) == 6:
         res = list()
         while str:
@@ -505,7 +509,7 @@ def cb_factory(option, opt_str, value, parser,
     try:
         setattr(parser.values, option.dest,
                 func(value, **kwargs))
-    except ValueError, e:
+    except ValueError as e:
         raise OptionValueError(str(e))
 
 def add_colour_option(parser, *args, **kwargs):

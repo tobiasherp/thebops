@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*- vim: sw=4 ts=8 sts=4 si et 
+﻿# -*- coding: utf-8 -*- vim: sw=4 ts=8 sts=4 si et
 """
 Demo for the colours module: Colours conversions
 """

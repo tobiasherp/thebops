@@ -1,4 +1,4 @@
-"""A powerful, extensible, and easy-to-use option parser.
+﻿"""A powerful, extensible, and easy-to-use option parser.
 
 By Greg Ward <gward@python.net>
 
@@ -2005,7 +2005,7 @@ def _match_abbrev(s, wordmap):
             # More than one possible completion: ambiguous prefix.
             possibilities.sort()
             # This doesn't matter unless they point to different
-            # options ... 
+            # options ...
             prev = None
             for word in possibilities:
                 o = wordmap[word]
