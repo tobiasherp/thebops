@@ -8,12 +8,14 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+bin/
 build/
 develop-eggs/
 dist/
 downloads/
 eggs/
 .eggs/
+include/
 lib/
 lib64/
 parts/
@@ -129,6 +131,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+pyvenv.cfg
 
 # Spyder project settings
 .spyderproject
@@ -160,3 +163,11 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+# visaplan
+.restore-env.sh
+.svn-*.tmp
+auto.msg*
+thebops-*
+tools/
+
