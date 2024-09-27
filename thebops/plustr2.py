@@ -1,4 +1,4 @@
-#!/usr/bin/python
+﻿#!/usr/bin/python
 """
 thebops.plustr2 - plural strings module 2
 (not yet usable)

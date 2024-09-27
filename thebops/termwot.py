@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*- »ö« vim: ts=8 sts=4 sw=4 si et tw=79
 """\
 termwot - Tobias Herp's terminal waste of time
@@ -224,7 +224,7 @@ BACKWARDS = {
         ']': '[',
         '/': '\\',
         u'»': u'«',
-        
+
         # '(o-': '-o)',
         # '°ooo'
         # '·.  (u'\xb7')

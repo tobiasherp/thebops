@@ -1,11 +1,11 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: latin1 -*- vim: ts=8 sts=4 sw=4 si et tw=79
 """\
 misc1: miscellaneous functions etc., collected here for lack of a better place.
 
 Please don't rely on the functions and classes available here - not for too
 long, at least.  The general policy is:
- 
+
 - New stuff might vanish without notice if part of an alpha or beta version
   of thebops *only*.
 - New stuff will remain available here for at least two years (rounded to the
@@ -98,7 +98,7 @@ def make_valuesClass(seq, default=None, classname=None):
     'Mock(help=None, version=1)'
     """
     assert not isinstance(seq, basestring)
-    # preserve the order, thus don't use a set: 
+    # preserve the order, thus don't use a set:
     nodupes = []
     for a in seq:
         if not a in nodupes:

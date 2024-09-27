@@ -1,8 +1,10 @@
-#!/usr/bin/python
+﻿#!/usr/bin/python
 """\
 thebops.base: base module for other thebops modules
 """
 
+from __future__ import absolute_import
+from six.moves import map
 __author__ = "Tobias Herp <tobias.herp@gmx.net>"
 
 try: _

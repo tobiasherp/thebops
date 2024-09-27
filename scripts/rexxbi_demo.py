@@ -1,10 +1,14 @@
-#!/usr/bin/env python
-# -*- coding: latin1 -*- vim: ts=8 sts=4 sw=4 si et tw=79
+ï»¿#!/usr/bin/env python
+# -*- coding: utf-8 -*- vim: ts=8 sts=4 sw=4 si et tw=79
 """\
 Demo program for the rexxbi Python module
 (which contains selected functions like those built-in in the REXX language)
 """
 
+from __future__ import absolute_import
+from __future__ import print_function
+from six.moves import map
+from six.moves import range
 __author__ = "Tobias Herp <tobias.herp@gmx.net>"
 VERSION = (0,
            4,	# initial version: tests for rexxbi.py v0.4
@@ -32,8 +36,8 @@ def generic_demo(f, args, rexx_syntax=0, convert=None, flabel=None):
     u"""
     f -- die demonstrierte Funktion (das Objekt)
     args -- eine Sequenz von Tupeln
-    rexx_syntax -- wenn True, werden gültige Rexx-Kommandos ausgegeben
-                   und die Funktionsnamen in Großschreibung konvertiert
+    rexx_syntax -- wenn True, werden gÃ¼ltige Rexx-Kommandos ausgegeben
+                   und die Funktionsnamen in GroÃŸschreibung konvertiert
     """
     fname = f.__name__
     if flabel is None:
@@ -48,7 +52,7 @@ def generic_demo(f, args, rexx_syntax=0, convert=None, flabel=None):
     maxl = max(*tuple([len(s[0]) for s in resl]))
     mask = '%s%%-%ds -->  %%r' % (fname, maxl)
     for (a, res) in resl:
-        print mask % (a, res)
+        print(mask % (a, res))
 
 def generate_results(f, args, convert):
     """
@@ -89,15 +93,15 @@ def test_leftright(s, width, fillchar=None, rexx_syntax=0):
         if rexx_syntax:
             fnames = fnames.upper()
         mask = '%s(s, %%2d%%s) = %%r   %s(s, %%2d%%s) = %%r' \
-               % tuple(fnames.split()) 
+               % tuple(fnames.split())
         print('s = %r' % s)
         for i in range(width):
             j = width - i - 1
-            print mask % (
+            print(mask % (
                     i, fillarg, left(s, i, fillchar),
                     j, fillarg, right(s, j, fillchar),
-                    )
-    except Exception, e:
+                    ))
+    except Exception as e:
         error(e)
 
 def demo_center(s, width, fillchar=None, rexx_syntax=0, fname='center'):
@@ -124,16 +128,16 @@ def demo_center(s, width, fillchar=None, rexx_syntax=0, fname='center'):
         for i in range(width):
             j = width - i + 2
             c = center(s, i, fillchar)
-            print mask % (
+            print(mask % (
                     i, fillarg, c, j, '==', k, '', c,
-                    )
+                    ))
             if i < length:
                 if odd(i):
                     k -= 1
             else:
                 if even(i):
                     k -= 1
-    except Exception, e:
+    except Exception as e:
         error(e)
 
 def shorttup(tup):
@@ -383,7 +387,7 @@ if __name__ == '__main__':
         parser.values.functions.extend('words word wordpos wordindex'
                 ' subword delword'.split())
     g.add_option('--left-right',
-                 dest='left_right', 
+                 dest='left_right',
                  action='store_true',
                  help=_('combined demo of the left and right functions, '
                  'inspired by the Rexx built-ins LEFT and RIGHT'))
@@ -476,7 +480,7 @@ if __name__ == '__main__':
         return o.all or fname in funcs_selected
 
     ok = 0
-    # functions without fillchar support first: 
+    # functions without fillchar support first:
     if show_function('compare'):
         demo_compare(o.rexx_syntax)
 

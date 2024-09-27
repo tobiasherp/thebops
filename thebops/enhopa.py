@@ -1,4 +1,4 @@
-# -*- coding: latin1 -*- vim: ts=8 sts=4 sw=4 et
+﻿# -*- coding: utf-8 -*- vim: ts=8 sts=4 sw=4 et
 """
 enhopa: An enhanced option parser, using the optparse module
 

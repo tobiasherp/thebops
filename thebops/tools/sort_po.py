@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*- vim: ts=8 sts=4 sw=4 si et
 """
 sort-po.py - Sortiere gettext-Kataloge
@@ -417,7 +417,7 @@ def sort_catalogue(fname, o):
                 add_block,
                 )
 
-    # Arbeitslisten für einzelne Blocks: 
+    # Arbeitslisten für einzelne Blocks:
     theid = []
     msgstr = []
     comments = []
@@ -500,7 +500,7 @@ def sort_catalogue(fname, o):
         info('%s: nicht geschrieben, --check-only aktiv'
              % (fname,))
         return
-    # Änderung der Originaldatei; 
+    # Änderung der Originaldatei;
     # die wird ja wohl versioniert sein!
     fo = open(fname, 'w')
     for (id, lines) in msgids:

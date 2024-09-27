@@ -1,5 +1,5 @@
-#!/usr/bin/python
-# -*- coding: latin-1 -*- vim: ts=8 sts=4 et si sw=4 tw=79 
+﻿#!/usr/bin/python
+# -*- coding: latin-1 -*- vim: ts=8 sts=4 et si sw=4 tw=79
 """\
 %(prog)s.py: Python-Modul fuer Fehlerausgaben (fuer Konsolenprogramme)
 """

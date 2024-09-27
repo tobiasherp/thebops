@@ -1,4 +1,4 @@
-"""
+﻿"""
 use *x find on Windows(tm) systems where an incompatible program is part of the system
 """
 
@@ -29,7 +29,7 @@ Values = make_valuesClass(('help', 'version',
 try:
     from subprocess import Popen
 except ImportError:
-    # TODO: use old module instead 
+    # TODO: use old module instead
     raise
 
 
@@ -95,7 +95,7 @@ def info_dict():
 
 def show_help(myhelp=True, findhelp=True):
     """
-    Print the help text for this program and/or for the 
+    Print the help text for this program and/or for the
     """
     print _('%(prog)s v%(version)s: call *x find program'
             ) % info_dict()

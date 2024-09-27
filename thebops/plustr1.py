@@ -1,4 +1,4 @@
-#!/usr/bin/python
+﻿#!/usr/bin/python
 """
 thebops.plustr1 - plural strings module 1
 
@@ -7,7 +7,7 @@ num == 1, and the plural form for all other numbers
 """
 
 VERSION = (0,
-           5, # 
+           5, #
            1, # freezeText -> thebops.plustr1
            1, # _splitPluralSwitchableString examples -> doctest
            'rev-%s' % '$Rev: 1086 $'[6:-2],

@@ -1,9 +1,12 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*- äöü vim: ts=8 sts=4 sw=4 si et tw=79
 """\
 Universelles Hash-Programm
 """
 
+from __future__ import absolute_import
+from __future__ import print_function
+from six.moves import map
 __author__ = "Tobias Herp <tobias.herp@gmx.net>"
 VERSION = (0,
            2,   # konstantes Ausgabeintervall; Code aufgeräumt
@@ -91,14 +94,14 @@ if option.algorithm is None:
     option.algorithm = 'md5'
 
 digest_lengths = (
-        # ermittelt aus hashlib: 
+        # ermittelt aus hashlib:
         ('md5',       16),
         ('sha1',      20),
         ('sha224',    28),
         ('sha256',    32),
         ('sha384',    48),
         ('sha512',    64),
-        # weitere: 
+        # weitere:
         ('whirlpool', 64),
         )
 
@@ -135,7 +138,7 @@ try:
     while 1:
         if fo is None:
             try:
-                fn = gen.next()
+                fn = next(gen)
                 total = stat(fn).st_size
                 fo = open(fn, 'rb')
                 HASH = new(algo)
@@ -147,12 +150,11 @@ try:
             now = time()
             lap = now - ptime
             if first or (lap > INTERVAL):
-                s = fancy.next()
-                print >> console, \
-                        ('\r%20s %s (%.2f%%)'
+                s = next(fancy)
+                print(('\r%20s %s (%.2f%%)'
                          % (s, fn,
                             total and (pos*100/total) or 0
-                            )),
+                            )), end=' ', file=console)
                 ptime = now
                 first = 0
         try:
@@ -167,16 +169,16 @@ try:
             proz = 100
             eof = 1
         if eof:
-            print >> console, '\r%*s\r' % (FANCYWIDTH+10+len(fn),
+            print('\r%*s\r' % (FANCYWIDTH+10+len(fn),
                                            '',
-                                           ),
-            print '%s *%s' % (HASH.hexdigest(), fn)
+                                           ), end=' ', file=console)
+            print('%s *%s' % (HASH.hexdigest(), fn))
             fo.close()
             fo = None
 except KeyboardInterrupt:
-    print >> console, '\r%*s\r%s' % (FANCYWIDTH+10+len(fn),
+    print('\r%*s\r%s' % (FANCYWIDTH+10+len(fn),
                                    '',
                                    _('... aborted.')
-                                   ),
+                                   ), end=' ', file=console)
     raise SystemExit(99)
 

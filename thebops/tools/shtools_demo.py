@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: latin1 -*- vim: ts=8 sts=4 sw=4 si et tw=79
 __author__ = "Tobias Herp <tobias.herp@gmx.net>"
 VERSION = (0,

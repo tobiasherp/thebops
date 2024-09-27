@@ -1,9 +1,12 @@
-#!/usr/bin/env python
-# -*- coding: latin1 -*- vim: ts=8 sts=4 sw=4 si et tw=79
+﻿#!/usr/bin/env python
+# -*- coding: utf-8 -*- vim: ts=8 sts=4 sw=4 si et tw=79
 """\
 Python environment variables info
 """
 
+from __future__ import absolute_import
+from __future__ import print_function
+from six.moves import map
 __author__ = "Tobias Herp <tobias.herp@gmx.net>"
 VERSION = (0,
            2,   # REMatcher; py26 -> py26+; some (but not all) bugs fixed
@@ -248,7 +251,7 @@ if option.groups:
             if g in groups:
                 used_groups.add(g)
             else:
-                # generic support for 'py24' etc. specs: 
+                # generic support for 'py24' etc. specs:
                 tst = specsPythonVersion(g)
                 if tst is None:
                     error(_('unknown variables group %(g)r'
@@ -264,7 +267,7 @@ elif not option.path:	# the only other option
 if not used_groups and not option.path: # won't happen ...
     error(_('nothing to do (no variables groups specified)'))
 check_errors()
-if 0: print used_groups
+if 0: print(used_groups)
 
 interesting_vars = list()
 other_vars = list()
@@ -305,7 +308,7 @@ dirty = 0
 def divide():
     global dirty
     if dirty:
-        print
+        print()
     else:
         dirty = 1
 
@@ -326,17 +329,17 @@ for gi, varname in interesting_vars:
         missing.append(varname)
         continue
     found_var, val = tup
-    print '%(found_var)s=%(val)s' % locals()
+    print('%(found_var)s=%(val)s' % locals())
 
 if found_other:
     divide()
     found_other.sort()
     for varname in found_other:
         found_var, val = found_as.get(varname)
-        print '%(found_var)s=%(val)s' % locals()
+        print('%(found_var)s=%(val)s' % locals())
 
 if option.path:
     divide()
-    print _('Python module search path:')
+    print(_('Python module search path:'))
     for p in path:
-        print '  %(p)s' % locals()
+        print('  %(p)s' % locals())

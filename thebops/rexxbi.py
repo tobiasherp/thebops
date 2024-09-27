@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: latin1 -*- vim: ts=8 sts=4 sw=4 si et tw=79
 """\
 rexxbi - selected functions like those built-in in the REXX language
@@ -838,7 +838,7 @@ def d2x(num, width=None):
             j *= 16
         x = '%X' % (j - a)
         return x[-width:]
-    
+
     res = '%0*X' % (width, i)
     if len(res) > width:
 	return res[-width:]

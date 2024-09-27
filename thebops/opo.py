@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: latin1 -*- vim: ts=8 sts=4 sw=4 si et tw=79
 """\
 opo: optparse options
@@ -39,7 +39,7 @@ __all__ = ['add_date_options',
            # other helpers:
            'get_the_parser',
            # TODO:
-           # 'cb_negations', # siehe wget.py, negations; auch f�r wobinich.py
+           # 'cb_negations', # siehe wget.py, negations; auch für wobinich.py
            ]
 
 try:
@@ -179,7 +179,7 @@ def make_simple_callback(func, optional=None, optval=None):
             - the *callback_args
             - the **callback_kwargs
     optional -- if True, the <value> will be used only if not None
-                (useful for options with optional value) 
+                (useful for options with optional value)
     optval -- if not None, switches <optional> to True
     """
     if optional is None:
